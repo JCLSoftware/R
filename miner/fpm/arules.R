@@ -13,11 +13,13 @@
 	fp <- read.transactions(frules, sep = ';')
 	data<-fp;
 	apr<-apriori(fp, parameter = list(supp = params$support, conf = params$confidence))
-
+	defaultName = paste(params$storedFileId,params$suppor, params$confidence, ".html", sep='_')
 	p<-plot(apr, method = "graph", engine="htmlwidget", measure = "support", shading = "lift", fp)
-	htmlwidgets::saveWidget(p, "graph.html", selfcontained = FALSE)
+	htmlwidgets::saveWidget(p, "arules.html", selfcontained = FALSE)
+	file.rename("arules.html", paste(defaultName, paste("graph.html"))
 	#ATENCAO! Renomeie o arquivo pois será gerado novo arquivo a seguir. Isso é necessário para que a pasta de biblioteca tenha um nome unico e melhore o desempenho do sistema
 
 	p <- plotly_arules(apr)
 	htmlwidgets::saveWidget(p, "arules.html", selfcontained = FALSE)
+        file.rename("arules.html", paste(defaultName, paste("scatter.html"))
  	#write.csv(s, file=params$fout)
