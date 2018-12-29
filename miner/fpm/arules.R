@@ -28,4 +28,4 @@
 	repareWidget(paste(defaultName, "scatter.html", sep='_'))
         #file.rename("arules.html", )
  	#write.csv(s, file=params$fout)
-result = (paste('{"arulesFileId":',1,',"graphFileId":',1,'}', sep=''))
+return(paste('{"arulesFileId":',1,',"graphFileId":',1,'}', sep=''))
