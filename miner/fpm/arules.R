@@ -24,7 +24,7 @@
 	}
 	#file.rename("arules.html", paste(defaultName, "graph.html", sep='_'))
 	p <- plotly_arules(apr)
-	htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
-	repareWidget(paste(defaultName, "scatter.html", sep='_'))
+	#htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
+	#repareWidget(paste(defaultName, "scatter.html", sep='_'))
         #file.rename("arules.html", )
  	#write.csv(s, file=params$fout)
