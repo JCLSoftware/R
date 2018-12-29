@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 	repareWidget<-function(newName){
 		tx  <- readLines("arules.html")
-		tx2  <- gsub(pattern = "arules_files/", replace = "https://github.com/JCLSoftware/R/edit/master/miner/fpm/arules_files/", x = tx)
+		tx2  <- gsub(pattern = "arules_files/", replace = "http://jcloud.net.br/static/arules_files/", x = tx)
 		writeLines(tx2, con=newName)
 	}
 	encoding='UTF-8'
