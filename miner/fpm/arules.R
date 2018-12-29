@@ -1,4 +1,9 @@
 #!/usr/bin/env Rscript
+	repareWidget<-function(newName){
+		tx  <- readLines("arules.html")
+		tx2  <- gsub(pattern = "arules_files/", replace = "https://github.com/JCLSoftware/R/edit/master/miner/fpm/arules_files/", x = tx)
+		writeLines(tx2, con=newName)
+	}
 	encoding='UTF-8'
  	t = read.table(params$datasource, sep=params$sep, header = as.logical(params$hasHeader, row.names=NULL, comment.char="", stringsAsFactors=TRUE, encoding = encoding))	
 	data<-as.matrix(t)
@@ -17,11 +22,6 @@
 	p<-plot(apr, method = "graph", engine="htmlwidget", measure = "support", shading = "lift", fp)
 	htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
 	repareWidget(paste(defaultName, "graph.html", sep='_'))
-	repareWidget<-function(newName){
-		tx  <- readLines("arules.html")
-		tx2  <- gsub(pattern = "arules_files/", replace = "https://github.com/JCLSoftware/R/edit/master/miner/fpm/arules_files/", x = tx)
-		writeLines(tx2, con=newName)
-	}
 	#file.rename("arules.html", paste(defaultName, "graph.html", sep='_'))
 	p <- plotly_arules(apr)
 	#htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
