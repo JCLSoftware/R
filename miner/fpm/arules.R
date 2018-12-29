@@ -16,10 +16,10 @@
 	defaultName = paste(params$storedFileId,params$suppor, params$confidence, ".html", sep='_')
 	p<-plot(apr, method = "graph", engine="htmlwidget", measure = "support", shading = "lift", fp)
 	htmlwidgets::saveWidget(p, "arules.html", selfcontained = FALSE)
-	file.rename("arules.html", paste(defaultName, paste("graph.html"))
+	file.rename("arules.html", paste(defaultName, "graph.html", sep='_'))
 	#ATENCAO! Renomeie o arquivo pois será gerado novo arquivo a seguir. Isso é necessário para que a pasta de biblioteca tenha um nome unico e melhore o desempenho do sistema
 
 	p <- plotly_arules(apr)
 	htmlwidgets::saveWidget(p, "arules.html", selfcontained = FALSE)
-        file.rename("arules.html", paste(defaultName, paste("scatter.html"))
+        file.rename("arules.html", paste(defaultName, "scatter.html", sep='_'))
  	#write.csv(s, file=params$fout)
