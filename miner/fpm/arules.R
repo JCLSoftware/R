@@ -12,7 +12,7 @@
 	write.table(frules, x = data, sep = ';')
 	fp <- read.transactions(frules, sep = ';')
 	data<-fp;
-	apr<-apriori(fp, parameter = list(supp = 0.453, conf = 0.95))
+	apr<-apriori(fp, parameter = list(supp = params$support, conf = params$confidence))
 
 	p<-plot(apr, method = "graph", engine="htmlwidget", measure = "support", shading = "lift", fp)
 	htmlwidgets::saveWidget(p, "graph.html", selfcontained = FALSE)
