@@ -2,7 +2,11 @@
 	repareWidget<-function(newName){
 		tx  <- readLines("arules.html")
 		tx2  <- gsub(pattern = "arules_files/", replace = "http://jcloud.net.br/static/arules_files/", x = tx)
-		writeLines(tx2, con=newName)
+		writeLines(tx2, con=newName)		
+		url = 'http://storage.jcloud.net.br/UPLOAD/1.json';
+		x<-POST(url, body = list(x = upload_file(newName)))
+		a<-content(x, useInternalNodes=T)
+		return(a$Id)
 	}
 	encoding='UTF-8'
  	t = read.table(params$datasource, sep=params$sep, header = as.logical(params$hasHeader, row.names=NULL, comment.char="", stringsAsFactors=TRUE, encoding = encoding))	
@@ -21,11 +25,11 @@
 	defaultName = paste(params$storedFileId,params$suppor, params$confidence, ".html", sep='_')
 	p<-plot(apr, method = "graph", engine="htmlwidget", measure = "support", shading = "lift", fp)
 	htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
-	repareWidget(paste(defaultName, "graph.html", sep='_'))
+	graphId=repareWidget(paste(defaultName, "graph.html", sep='_'))
 	#file.rename("arules.html", paste(defaultName, "graph.html", sep='_'))
 	p <- plotly_arules(apr)
 	htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
-	repareWidget(paste(defaultName, "scatter.html", sep='_'))
+	arulesId=repareWidget(paste(defaultName, "scatter.html", sep='_'))
         #file.rename("arules.html", )
  	#write.csv(s, file=params$fout)
-return(paste('{"arulesFileId":',1,',"graphFileId":',1,'}', sep=''))
+return(paste('{"arulesFileId":',arulesId,',"graphFileId":',graphId,'}', sep=''))
