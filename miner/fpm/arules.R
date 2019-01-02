@@ -10,8 +10,9 @@
 	}
 	encoding='UTF-8'
 	#Fix missing values
-	if(length(params$hasHeader) == 0)params$hasHeader=F
-	else params$hasHeader=as.logical(params$hasHeader)
+	if(length(params$hasHeader) == 0){
+		params$hasHeader=F
+	}else{ params$hasHeader=as.logical(params$hasHeader)}
 
 	t = read.table(params$datasource, sep=params$sep, header = params$hasHeader, row.names=NULL, comment.char="", stringsAsFactors=TRUE, encoding = encoding)	
 	data<-as.matrix(t)
