@@ -12,7 +12,7 @@
 	#Fix missing values
 	if(length(params$hasHeader) == 0){
 		params$hasHeader=F
-	}else{ params$hasHeader=as.logical(params$hasHeader)}
+	}else { params$hasHeader=as.logical(params$hasHeader)}
 
 	t = read.table(params$datasource, sep=params$sep, header = params$hasHeader, row.names=NULL, comment.char="", stringsAsFactors=TRUE, encoding = encoding)	
 	data<-as.matrix(t)
@@ -26,7 +26,7 @@
 	write.table(frules, x = data, sep = ';')
 	fp <- read.transactions(frules, sep = ';')
 	data<-fp;
-	apr<-apriori(fp, parameter = list(supp = params$support, conf = params$confidence))
+	apr<-apriori(fp, parameter = list(supp = as.numeric(params$support), conf = as.numeric(params$confidence)))
 	defaultName = paste(params$storedFileId,params$suppor, params$confidence, ".html", sep='_')
 	p<-plot(apr, method = "graph", engine="htmlwidget", measure = "support", shading = "lift", fp)
 	htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
