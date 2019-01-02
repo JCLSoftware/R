@@ -36,4 +36,4 @@
 	arulesId=repareWidget(paste(defaultName, "scatter.html", sep='_'), user)
         #file.rename("arules.html", )
  	#write.csv(s, file=params$fout)
-return(paste('{"arulesFileId":',arulesId,',"graphFileId":',graphId,'}', sep=''))
+result=(paste('{"arulesFileId":',arulesId,',"graphFileId":',graphId,'}', sep=''))
