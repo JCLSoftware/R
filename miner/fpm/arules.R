@@ -9,7 +9,11 @@
 		return(a$Id)
 	}
 	encoding='UTF-8'
-	t = read.table(params$datasource, sep=params$sep, header = as.logical(params$hasHeader), row.names=NULL, comment.char="", stringsAsFactors=TRUE, encoding = encoding)	
+	#Fix missing values
+	if(length(params$hasHeader) == 0)params$hasHeader=F
+	else params$hasHeader=as.logical(params$hasHeader)
+
+	t = read.table(params$datasource, sep=params$sep, header = params$hasHeader, row.names=NULL, comment.char="", stringsAsFactors=TRUE, encoding = encoding)	
 	data<-as.matrix(t)
 	#data[is.na(data[,2]),2]='Outros' #Remove NAs das cidades
 	for(i in 1:nrow(data)){
