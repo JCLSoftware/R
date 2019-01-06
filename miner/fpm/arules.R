@@ -9,7 +9,7 @@
 		return(a$Id)
 	}
 	encoding='UTF-8'
-	#Fix missing values
+	#Fix missing values (TODO: use function fixLogical from https://raw.githubusercontent.com/JCLSoftware/R/master/miner/utils.R, already loaded)
 	if(length(params$hasHeader) == 0){
 		params$hasHeader=F
 	}else { params$hasHeader=as.logical(params$hasHeader)}
