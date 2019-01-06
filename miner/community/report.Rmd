@@ -1,5 +1,5 @@
 ---
-title: "TestMD"
+title: "Sumário: Detecção de Comunidades (v1.0)"
 output: html_document
 ---
 
