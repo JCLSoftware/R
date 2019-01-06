@@ -22,6 +22,9 @@ summary(cars)
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
+directed=fixLogical(params$directed)
+gformat=params$format
+gfile=params$datasource
 g<-read.graph(gfile, format = gformat, directed = directed)
 c_g<-cluster_louvain(g)
 res_g <- simplify(contract(g, membership(c_g))) 
