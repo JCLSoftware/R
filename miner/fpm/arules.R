@@ -1,4 +1,4 @@
-source(paste('https://raw.githubusercontent.com/JCLSoftware/R/master/miner/fpm/utils.R',Sys.time(),sep=''))
+source(paste('https://raw.githubusercontent.com/JCLSoftware/R/master/miner/fpm/utils.R?a=',Sys.time(),sep=''))
 encoding='UTF-8'
 params$hasHeader<-fixLogical(params$hasHeader)
 t<-read.transactions(params$datasource)
