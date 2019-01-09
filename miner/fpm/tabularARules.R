@@ -28,4 +28,4 @@
 	data<-fp;
 	apr<-apriori(fp, parameter = list(supp = as.numeric(params$support), conf = as.numeric(params$confidence)))
 	defaultName = paste(params$storedFileId,params$suppor, params$confidence, ".html", sep='_')
-	source('writeOutputs.R')
+	source('https://raw.githubusercontent.com/JCLSoftware/R/master/miner/fpm/writeOutputs.R')
