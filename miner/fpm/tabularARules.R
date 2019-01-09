@@ -16,5 +16,5 @@ write.table(frules, x = data, sep = ';')
 fp <- read.transactions(frules, sep = ';')
 data<-fp;
 apr<-apriori(fp, parameter = list(supp = as.numeric(params$support), conf = as.numeric(params$confidence)))
-result<-writeOutputs(params)
+result<-writeOutputs(apr, fp, params)
 return(result)
