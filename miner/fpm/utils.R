@@ -10,7 +10,7 @@ writeOutputs<-function(params){
   #file.rename("arules.html", )
   #write.csv(s, file=params$fout)
   result=(paste('{"arulesFileId":',arulesId,',"graphFileId":',graphId,'}', sep=''))
-  return(return)
+  return(result)
 }
 repareWidget<-function(newName, user){
 	tx  <- readLines("arules.html")
