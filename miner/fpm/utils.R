@@ -12,7 +12,7 @@ writeOutputs<-function(apr, fp, params){
   #write.csv(s, file=params$fout)
   result=(paste('{"arulesFileId":',arulesId,',"graphFileId":',graphId,'}', sep=''))
   return(result)
- }else warning('Sem regras')
+ }else return('{"msg":"nenhuma regra atende aos parâmetros especificados"}')
 }
 repareWidget<-function(newName, user){
 	tx  <- readLines("arules.html")
