@@ -1,4 +1,5 @@
-writeOutputs<-function(params){
+writeOutputs<-function(apr, fp, params){
+ if(length(apr) > 0){
   defaultName = paste(params$storedFileId,params$suppor, params$confidence, ".html", sep='_')
   p<-plot(apr, method = "graph", engine="htmlwidget", measure = "support", shading = "lift", fp)
   htmlwidgets::saveWidget(p, "arules.html", selfcontained = F)
@@ -11,6 +12,7 @@ writeOutputs<-function(params){
   #write.csv(s, file=params$fout)
   result=(paste('{"arulesFileId":',arulesId,',"graphFileId":',graphId,'}', sep=''))
   return(result)
+ }else warning('Sem regras')
 }
 repareWidget<-function(newName, user){
 	tx  <- readLines("arules.html")
