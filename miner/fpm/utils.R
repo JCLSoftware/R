@@ -11,3 +11,12 @@ writeOutputs<-function(params){
   #write.csv(s, file=params$fout)
   return result=(paste('{"arulesFileId":',arulesId,',"graphFileId":',graphId,'}', sep=''))
 }
+	repareWidget<-function(newName, user){
+		tx  <- readLines("arules.html")
+		tx2  <- gsub(pattern = "arules_files/", replace = "http://jcloud.net.br/static/arules_files/", x = tx)
+		writeLines(tx2, con=newName)		
+		url = 'http://storage.jcloud.net.br/UPLOAD/1.json';
+		x<-POST(url, body = list(x = upload_file(newName), Username=user$name, Password=user$password))#dominio diferente exige autenticação
+		a<-content(x, useInternalNodes=T)
+		return(a$Id)
+	}
