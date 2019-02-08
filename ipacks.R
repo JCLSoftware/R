@@ -1,3 +1,4 @@
+update.packages(ask = FALSE)
 libs=c("arulesViz",
           "assertthat",
           "base64enc",
