@@ -9,3 +9,11 @@ runPackages<-function(libs){
     library(i, character.only = TRUE)
   }  
 }
+
+getNewFileName<-function(name, ext){
+    result <- paste(name, ext, sep='.')
+    if(file.exists(result)){
+      result <- paste(name, (format((Sys.time()), "%m_%d_%y_%H_%M_%OS3")), ext, sep='.')
+    }  
+    return (result)
+}
